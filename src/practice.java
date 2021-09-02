@@ -21,6 +21,8 @@ public class practice implements Runnable{
     JTextField nametext;
     JTextField calnumtext;
 
+    JButton submitname;
+
     @Override
     public void run() {
 
@@ -45,8 +47,17 @@ public class practice implements Runnable{
         c12.gridy = 0;
         c12.weightx = .1;
         c12.weighty = .1;
-        c12.anchor = GridBagConstraints.PAGE_START;
-        panel12.add(namelabel);
+        c12.anchor = GridBagConstraints.LINE_START;
+
+
+        nametext = new JTextField("hello", 10);
+        c12.weightx = 0;
+        c12.weighty = 0;
+//        c12.gridx = 1;
+        c12.anchor = GridBagConstraints.CENTER;
+
+    submitname = new JButton("submit");
+        c12.gridx = 1;
 
         panel13 = new JPanel();
         panel13.setLayout(new GridBagLayout());
@@ -56,6 +67,8 @@ public class practice implements Runnable{
 //        GridBagConstraints c13 = new GridBagConstraints();
 
         pane1.add(panel12);
+        panel12.add(namelabel, c12);
+        panel12.add(nametext, c12);
         pane1.add(panel13);
         frame.add(pane1);
 
