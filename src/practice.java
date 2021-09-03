@@ -1,30 +1,30 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class practice implements Runnable{
+public class practice {
 
 
-    JFrame frame;
 
-    JPanel pane1;
-    JPanel panel12;
-    JPanel panel13;
-    JPanel pane2;
 
-    JLabel lab;
-    JLabel lab2;
-    JLabel lab3;
+    public static void main(String[] args) {
+        JFrame frame;
 
-    JLabel namelabel;
-    JLabel calnumlabel;
+        JPanel pane1;
+        JPanel panel12;
+        JPanel panel13;
+        JPanel pane2;
 
-    JTextField nametext;
-    JTextField calnumtext;
+        JLabel lab;
+        JLabel lab2;
+        JLabel lab3;
 
-    JButton submitname;
+        JLabel namelabel;
+        JLabel calnumlabel;
 
-    @Override
-    public void run() {
+        JTextField nametext;
+        JTextField calnumtext;
+
+        JButton submitname;
 
         frame = new JFrame();
         frame.setLayout(new GridLayout(2,1));
@@ -47,16 +47,18 @@ public class practice implements Runnable{
         c12.gridy = 0;
         c12.weightx = .1;
         c12.weighty = .1;
+        c12.insets.left = 25;
         c12.anchor = GridBagConstraints.LINE_START;
+        panel12.add(namelabel, c12);
 
 
         nametext = new JTextField("hello", 10);
-        c12.weightx = 0;
-        c12.weighty = 0;
-//        c12.gridx = 1;
+        c12.weightx = .9;
+        c12.weighty = 0.1;
+        c12.gridx = 1;
         c12.anchor = GridBagConstraints.CENTER;
 
-    submitname = new JButton("submit");
+        submitname = new JButton("submit");
         c12.gridx = 1;
 
         panel13 = new JPanel();
@@ -67,7 +69,7 @@ public class practice implements Runnable{
 //        GridBagConstraints c13 = new GridBagConstraints();
 
         pane1.add(panel12);
-        panel12.add(namelabel, c12);
+
         panel12.add(nametext, c12);
         pane1.add(panel13);
         frame.add(pane1);
@@ -99,9 +101,7 @@ public class practice implements Runnable{
 
         frame.add(pane2);
         frame.setVisible(true);
-    }
 
-    public static void main(String[] args){
-        SwingUtilities.invokeLater(new practice());
+        frame.invalidate();
     }
 }
