@@ -36,27 +36,13 @@ public class practice {
         pane1.setLayout(new GridLayout(1, 2));
         pane1.setBackground(Color.black);
 
-        panel12 = new JPanel();
-        panel12.setLayout(new GridBagLayout());
-        panel12.setBackground(Color.cyan);
 
 
-        namelabel = new JLabel("name: ");
         GridBagConstraints c12 = new GridBagConstraints();
-        c12.gridx = 0;
-        c12.gridy = 0;
-        c12.weightx = .1;
-        c12.weighty = .1;
-        c12.insets.left = 25;
-        c12.anchor = GridBagConstraints.LINE_START;
-        panel12.add(namelabel, c12);
 
 
-        nametext = new JTextField("hello", 10);
-        c12.weightx = .9;
-        c12.weighty = 0.1;
-        c12.gridx = 1;
-        c12.anchor = GridBagConstraints.CENTER;
+
+
 
         submitname = new JButton("submit");
         c12.gridx = 1;
@@ -65,12 +51,12 @@ public class practice {
         panel13.setLayout(new GridBagLayout());
         panel13.setBackground(Color.yellow);
 
+        // Top left quadrant
+        ManualEntry manualEntryComponent = new ManualEntry();
+        pane1.add (manualEntryComponent);
 
-//        GridBagConstraints c13 = new GridBagConstraints();
 
-        pane1.add(panel12);
-
-        panel12.add(nametext, c12);
+//        panel12.add(nametext, c12);
         pane1.add(panel13);
         frame.add(pane1);
 
