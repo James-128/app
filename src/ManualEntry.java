@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ManualEntry extends JPanel {
 
@@ -34,10 +36,20 @@ public class ManualEntry extends JPanel {
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.CENTER;
 
+        this.add (nametext, gbc);
+
         submitname = new JButton("submit");
         gbc.gridx = 1;
+        gbc.anchor = GridBagConstraints.LAST_LINE_END;
+        gbc.insets.right = 10;
+        gbc.insets.bottom = 10;
 
-        this.add (nametext, gbc);
+        this.add(submitname, gbc);
+
+        submitname.addActionListener(e -> {
+            String textFieldtext = nametext.getText();
+            System.out.println(textFieldtext);
+            });
     }
 
 }

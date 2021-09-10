@@ -7,52 +7,45 @@ public class practice {
     public static void main(String[] args) {
         JFrame frame;
 
-        JPanel pane1;
-        JPanel panel12;
-        JPanel panel13;
-        JPanel pane2;
+        JPanel tophalf;
+        JPanel right;
+        JPanel bottomhalf;
 
-        JLabel namelabel;
-        JLabel calnumlabel;
-
-        JTextField nametext;
-        JTextField calnumtext;
-
-        JButton submitname;
-//----------------------------------------------------------
+//---------------------------------------------------------- overall frame
         frame = new JFrame();
         frame.setLayout(new GridLayout(2,1));
         frame.setSize(800, 500);
 
-        pane1 = new JPanel();
-        pane1.setLayout(new GridLayout(1, 2));
-        pane1.setBackground(Color.black);
+//------------------------------------------------top half
 
-//------------------------------------------------top left panel
+        tophalf = new JPanel();
+        tophalf.setLayout(new GridLayout(1, 2));
+        tophalf.setBackground(Color.black);
+        frame.add(tophalf);
+//------------------------------------------------top left
 
-        panel13 = new JPanel();
-        panel13.setLayout(new GridBagLayout());
-        panel13.setBackground(Color.yellow);
 
         // Top left quadrant
         ManualEntry manualEntryComponent = new ManualEntry();
-        pane1.add (manualEntryComponent);
+        tophalf.add (manualEntryComponent);
 
 
-//        panel12.add(nametext, c12);
-        pane1.add(panel13);
-        frame.add(pane1);
+//------------------------------------------------top right
+        right = new JPanel();
+        right.setLayout(new GridBagLayout());
+        right.setBackground(Color.yellow);
+        tophalf.add(right);
+
+//------------------------------------------------bottom half
+
+        bottomhalf = new JPanel();
+        bottomhalf.setLayout(new GridBagLayout());
+        bottom bottomcomponents = new bottom();
+        bottomhalf.add(bottomcomponents);
+        frame.add(bottomhalf);
 
 
-//-----------------------------------------------------------------------------------
-
-        pane2 = new JPanel();
-        pane2.setLayout(new GridBagLayout());
-        bottom bottom = new bottom();
-        pane2.add(bottom);
-        frame.add(pane2);
         frame.setVisible(true);
-
         frame.invalidate();
     }
 }

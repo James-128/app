@@ -26,5 +26,7 @@ public class bottom extends JPanel{
         c2.gridx = 2;
         c2.gridy = 1;
         this.add(lab3, c2);
+
+
     }
 }
