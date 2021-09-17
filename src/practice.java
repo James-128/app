@@ -15,7 +15,7 @@ public class practice {
         frame = new JFrame();
         frame.setLayout(new GridLayout(2,1));
         frame.setSize(800, 500);
-
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //------------------------------------------------top half
 
         tophalf = new JPanel();
