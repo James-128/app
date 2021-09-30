@@ -74,6 +74,16 @@ public class ManualEntry extends JPanel {
 
         submitname.addActionListener(e -> {
             String textFieldtext = nametext.getText ();
+            Object calorieValue = calorieSpinner.getValue();
+
+            boolean fruit = fruitCB.isSelected();
+            boolean veggie = veggieCB.isSelected();
+            boolean protein = proteinCB.isSelected();
+            boolean dairy = dairyCB.isSelected();
+            boolean grains = grainsCB.isSelected();
+            boolean trash = trashCB.isSelected();
+
+            // debug
             System.out.println (textFieldtext);
             });
     }
