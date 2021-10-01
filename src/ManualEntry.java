@@ -83,6 +83,9 @@ public class ManualEntry extends JPanel {
             boolean grains = grainsCB.isSelected();
             boolean trash = trashCB.isSelected();
 
+            FoodData data = new FoodData(textFieldtext, calorieValue, fruit, veggie, protein, dairy, grains, trash);
+            data.writeToFile();
+
             // debug
             System.out.println (textFieldtext);
             });

@@ -47,8 +47,5 @@ public class practice {
 
         frame.setVisible(true);
         frame.invalidate();
-
-        DatabaseManager.loadDrive();
-        DatabaseManager.connect();
     }
 }
