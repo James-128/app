@@ -67,4 +67,38 @@ public class FoodData {
 
         }
     }
+
+    public static int[] getFoodData() {
+        return new int[3];
+    }
+
+    private int getDairyTotal () {
+        return 0;
+    }
+
+    private int getProteinTotal () {
+        return 0;
+    }
+
+    private int getVeggieTotal () {
+        return 0;
+    }
+
+    private int getTrashTotal () {
+        return 0;
+    }
+
+    private int getFruitTotal () {
+        return 0;
+    }
+
+    private int getGrainTotal () {
+        return 0;
+    }
+
+    private int getTotalCalories () {
+        return 0;
+    }
+
+
 }
