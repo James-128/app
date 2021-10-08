@@ -26,7 +26,7 @@ public class FoodData {
 
     @Override
     public String toString() {
-        return        foodName +
+        return foodName +
                 "," + calorieCount +
                 "," + isFruit +
                 "," + isVeggie +
@@ -36,14 +36,14 @@ public class FoodData {
                 "," + isTrash + '\n';
     }
 
-    public void writeToFile(){
+    public void writeToFile() {
         String filename = "foodData.csv";
         try {
 
             File f = new File(filename);
 
 
-            if(f.createNewFile()) {
+            if (f.createNewFile()) {
                 System.out.println("file created");
 
             } else {
@@ -51,18 +51,18 @@ public class FoodData {
 
             }
 
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
 
         }
 
-        try{
+        try {
 
             FileWriter writer = new FileWriter(filename, true);
             writer.write(this.toString());
             writer.close();
 
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
 
         }

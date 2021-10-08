@@ -40,8 +40,8 @@ public class practice {
 
         bottomhalf = new JPanel();
         bottomhalf.setLayout(new GridBagLayout());
-        bottom bottomcomponents = new bottom();
-        bottomhalf.add(bottomcomponents);
+        bottom bottomComponents = new bottom();
+        bottomhalf.add(bottomComponents);
         frame.add(bottomhalf);
 
 
