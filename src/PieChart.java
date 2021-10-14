@@ -17,7 +17,7 @@ public class PieChart extends Canvas {
 
 
     public PieChart() {
-        this.setBackground(Color.BLACK);
+//        this.setBackground(Color.BLACK);
         this.setSize(250, 250);
     }
 
