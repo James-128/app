@@ -1,2 +1,4 @@
 # Project exclude paths
 /out/
+/.idea/csv-plugin.xml
+/.idea/runConfigurations.xml
