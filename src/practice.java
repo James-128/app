@@ -6,8 +6,6 @@ public class practice {
 
     public static void main(String[] args) {
 
-        int[] test = FoodData.getFoodData();
-
         JFrame frame;
 
         JPanel tophalf;
@@ -46,7 +44,10 @@ public class practice {
         bottom bottomComponents = new bottom();
         bottomhalf.add(bottomComponents);
         frame.add(bottomhalf);
+        manualEntryComponent.assignPieChart (bottomComponents.getPieChart());
 
+        // update drawn components
+        bottomComponents.getPieChart().update();
 
         frame.setVisible(true);
         frame.invalidate();

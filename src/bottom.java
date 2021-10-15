@@ -44,4 +44,6 @@ public class bottom extends JPanel{
 //        this.add(lab3, c2);
 
     }
+
+    public PieChart getPieChart () { return this.pieChart; }
 }

@@ -29,6 +29,8 @@ public class ManualEntry extends JPanel {
 
     private int gbcy = 1;
 
+    PieChart pieChart = null;
+
     public ManualEntry() {
 
         this.setLayout(new GridBagLayout());
@@ -87,8 +89,12 @@ public class ManualEntry extends JPanel {
             data.writeToFile();
 
             // debug
-            System.out.println (textFieldtext);
-            });
+//            System.out.println (textFieldtext);
+
+            if (pieChart != null) {
+                pieChart.update();
+            }
+        });
     }
 
     private void initManualEntryTitle (){
@@ -102,6 +108,7 @@ public class ManualEntry extends JPanel {
         gbc.anchor = GridBagConstraints.PAGE_START;
         this.add(Title, gbc);
     }
+
     private void initCalorieComponents(){
 
         calorieLabel = new JLabel ("Calories: ");
@@ -159,6 +166,10 @@ public class ManualEntry extends JPanel {
         gbc.gridy = gbcy++;
         this.add(trashCB, gbc);
 
+    }
+
+    public void assignPieChart(PieChart p) {
+        this.pieChart = p;
     }
 
 }

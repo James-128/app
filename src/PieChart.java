@@ -3,10 +3,20 @@ import javax.swing.JFrame;
 
 public class PieChart extends Canvas {
 
-    int totalCal = 267;
-    int veggieCal = 10;
-    int protienCal = 100;
-    int DairyCals = 157;
+    int totalCal = 0;
+    int fruitCal = 0;
+    int veggieCal = 0;
+    int proteinCal = 0;
+    int DairyCals = 0;
+    int grainCals = 0;
+    int trashCals = 0;
+
+    private final Color RED = Color.RED;
+    private final Color GREEN = Color.GREEN;
+    private final Color YELLOW = Color.YELLOW;
+    private final Color BLACK = Color.BLACK;
+    private final Color PINK = new Color (252, 0, 227, 255);
+    private final Color PURPLE = new Color (101, 0, 252, 255);
 
     int currentAngle = 0;
 
@@ -21,21 +31,53 @@ public class PieChart extends Canvas {
         this.setSize(250, 250);
     }
 
+    public void update() {
+
+        // get all the calorie info
+        int[] data = FoodData.getFoodData();
+
+        totalCal = data[0];
+        fruitCal = data[1];
+        veggieCal = data[2];
+        proteinCal = data[3];
+        DairyCals = data[4];
+        grainCals = data[5];
+        trashCals = data[6];
+
+        this.invalidate();
+    }
+
     @Override
     public void paint (Graphics g) {
 
         int angle = 0;
-        g.setColor(Color.GREEN);
+
+        g.setColor(GREEN);
         angle = Utility.caloriesToAngle(veggieCal, totalCal);
         g.fillArc(pcX,pcY, pcw,pch, currentAngle, angle);
         currentAngle += angle;
 
-        g.setColor(Color.RED);
-        angle = Utility.caloriesToAngle(protienCal, totalCal);
+        g.setColor(PURPLE);
+        angle = Utility.caloriesToAngle(proteinCal, totalCal);
         g.fillArc(pcX,pcY, pcw,pch, currentAngle, angle);
         currentAngle += angle;
 
-        g.setColor(Color.YELLOW);
+        g.setColor(RED);
+        angle = Utility.caloriesToAngle(fruitCal, totalCal);
+        g.fillArc(pcX,pcY, pcw,pch, currentAngle, angle);
+        currentAngle += angle;
+
+        g.setColor(PINK);
+        angle = Utility.caloriesToAngle(DairyCals, totalCal);
+        g.fillArc(pcX,pcY, pcw,pch, currentAngle, angle);
+        currentAngle += angle;
+
+        g.setColor(BLACK);
+        angle = Utility.caloriesToAngle(trashCals, totalCal);
+        g.fillArc(pcX,pcY, pcw,pch, currentAngle, angle);
+        currentAngle += angle;
+
+        g.setColor(YELLOW);
         angle = 360 - currentAngle;
         g.fillArc(pcX,pcY, pcw,pch, currentAngle, angle);
         currentAngle += angle;
