@@ -6,34 +6,58 @@ public class FoodData {
 
     private String foodName;
     private Object calorieCount;
-    private boolean isFruit;
-    private boolean isVeggie;
-    private boolean isProtein;
-    private boolean isDairy;
-    private boolean isGrain;
-    private boolean isTrash;
+    private int  FruitCals;
+    private int  VeggieCals;
+    private int ProteinCals;
+    private int  DairyCals;
+    private int  GrainCals;
+    private int TrashCals;
 
     public FoodData(String foodName, Object calorieCount, boolean isFruit, boolean isVeggie, boolean isProtein, boolean isDairy, boolean isGrain, boolean isTrash) {
         this.foodName = foodName;
         this.calorieCount = calorieCount;
-        this.isFruit = isFruit;
-        this.isVeggie = isVeggie;
-        this.isProtein = isProtein;
-        this.isDairy = isDairy;
-        this.isGrain = isGrain;
-        this.isTrash = isTrash;
+
+        int cals = (int) this.calorieCount;
+        int numChecked = 0;
+
+        // create boolean array of the checkboxes
+        boolean[] checkboxes = new boolean [] { isFruit, isVeggie, isProtein, isDairy, isGrain, isTrash};
+
+        // increment numChecked for each box that is checked
+        for (boolean checked : checkboxes) {
+            if (checked) {
+                numChecked++;
+            }
+        }
+
+        // avoid divide by zero
+        if (numChecked == 0) {
+            System.out.println ("[ERROR] cannot divide by zero in FoodData");
+            return;
+        }
+
+        // calculate the split calorie value
+        int splitCals = cals / numChecked;
+
+        this.FruitCals = isFruit ? splitCals : 0;
+        this.VeggieCals = isVeggie ? splitCals : 0;
+        this.ProteinCals = isProtein ? splitCals : 0;
+        this.DairyCals = isDairy ? splitCals : 0;
+        this.GrainCals = isGrain ? splitCals : 0;
+        this.TrashCals = isTrash ? splitCals : 0;
+
     }
 
     @Override
     public String toString() {
         return        foodName +
                 "," + calorieCount +
-                "," + isFruit +
-                "," + isVeggie +
-                "," + isProtein +
-                "," + isDairy +
-                "," + isGrain +
-                "," + isTrash + '\n';
+                "," + FruitCals +
+                "," + VeggieCals +
+                "," + ProteinCals +
+                "," + DairyCals +
+                "," + GrainCals +
+                "," + TrashCals + '\n';
     }
 
     public void writeToFile(){
