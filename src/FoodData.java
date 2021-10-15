@@ -1,6 +1,5 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 public class FoodData {
 
@@ -93,35 +92,131 @@ public class FoodData {
     }
 
     public static int[] getFoodData() {
-        return new int[3];
+        int[] fd = new int[7];
+
+        // create file reader
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader( new FileReader("foodData.csv") );
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        // reads foodData.csv to end-of-file filling up an array list with the lines
+        ArrayList<String> lines = new ArrayList<>(1000);
+        String line = "";
+        while (line != null) {
+            try {
+                line = br.readLine();
+
+                if (line == null){
+                    break;
+                }
+
+                lines.add (line);
+            }
+            catch (Exception e ) {
+                e.printStackTrace();
+            }
+
+        }
+
+        fd [0] = getTotalCalories (lines);
+        fd [1] = getFruitTotal (lines);
+        fd [2] = getVeggieTotal (lines);
+        fd [3] = getProteinTotal (lines);
+        fd [4] = getDairyTotal (lines);
+        fd [5] = getGrainTotal (lines);
+        fd [6] = getTrashTotal (lines);
+
+        return fd;
     }
 
-    private int getDairyTotal () {
-        return 0;
+    private static int getDairyTotal (ArrayList<String> lines) {
+        int total = 0;
+
+        for (String line : lines) {
+            total += getValueAtColumn(line, "dairy");
+        }
+
+        return total;
     }
 
-    private int getProteinTotal () {
-        return 0;
+    private static int getProteinTotal (ArrayList<String> lines) {
+        int total = 0;
+
+        for (String line : lines) {
+            total += getValueAtColumn(line, "protein");
+        }
+
+        return total;
     }
 
-    private int getVeggieTotal () {
-        return 0;
+    private static int getVeggieTotal (ArrayList<String> lines) {
+        int total = 0;
+
+        for (String line : lines) {
+            total += getValueAtColumn(line, "veggie");
+        }
+
+        return total;
     }
 
-    private int getTrashTotal () {
-        return 0;
+    private static int getTrashTotal (ArrayList<String> lines) {
+        int total = 0;
+
+        for (String line : lines) {
+            total += getValueAtColumn(line, "trash");
+        }
+
+        return total;
     }
 
-    private int getFruitTotal () {
-        return 0;
+    private static int getFruitTotal (ArrayList<String> lines) {
+        int total = 0;
+
+        for (String line : lines) {
+            total += getValueAtColumn(line, "fruit");
+        }
+
+        return total;
     }
 
-    private int getGrainTotal () {
-        return 0;
+    private static int getGrainTotal (ArrayList<String> lines) {
+        int total = 0;
+
+        for (String line : lines) {
+            total += getValueAtColumn(line, "grain");
+        }
+
+        return total;
     }
 
-    private int getTotalCalories () {
-        return 0;
+    private static int getTotalCalories (ArrayList<String> lines) {
+        int total = 0;
+
+        for (String line : lines) {
+            total += getValueAtColumn(line, "total");
+        }
+
+        return total;
+    }
+
+    private static int getValueAtColumn (String line, String column) {
+        String[] splitted = line.split(",");
+
+        switch (column) {
+            case "total"  : return Integer.valueOf(splitted [1]);
+            case "fruit"  : return Integer.valueOf(splitted [2]);
+            case "veggie" : return Integer.valueOf(splitted [3]);
+            case "protein": return Integer.valueOf(splitted [4]);
+            case "dairy"  : return Integer.valueOf(splitted [5]);
+            case "grain"  : return Integer.valueOf(splitted [6]);
+            case "trash"  : return Integer.valueOf(splitted [7]);
+        }
+
+        return -1;
     }
 
 

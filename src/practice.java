@@ -5,6 +5,9 @@ public class practice {
 
 
     public static void main(String[] args) {
+
+        int[] test = FoodData.getFoodData();
+
         JFrame frame;
 
         JPanel tophalf;
