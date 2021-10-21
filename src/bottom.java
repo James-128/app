@@ -34,29 +34,16 @@ public class bottom extends JPanel{
         key = new PieChartKey();
         this.add(key, gbc);
 
-        table = new Table();
 
+
+
+        // Column Names
+        String[] columnNames = { "Name", "Roll Number", "Department" };
+        String[][] data = { { "Kundan Kumar Jha", "4031", "CSE" }, { "Anand Jha", "6014", "IT" }};
+        table = new Table(data, columnNames);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
         this.add(table, gbc);
-
-//        GridBagConstraints c2 = new GridBagConstraints();
-//        c2.fill = GridBagConstraints.HORIZONTAL;
-//        c2.weightx = .1;
-//        c2.weighty = .1;
-//
-//        lab = new JLabel("food:");
-//        c2.gridx = 0;
-//        c2.gridy = 0;
-//        this.add(lab, c2);
-//
-//        lab2 = new JLabel("cash:");
-//        c2.gridx = 1;
-//        c2.gridy = 0;
-//        this.add(lab2, c2);
-//
-//        lab3 = new JLabel("money:");
-//        c2.gridx = 2;
-//        c2.gridy = 1;
-//        this.add(lab3, c2);
 
     }
 
