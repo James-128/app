@@ -1,5 +1,5 @@
 import java.awt.*;
-import java.awt.FontMetrics;
+
 public class PieChartKey extends Canvas {
 
         private final Color RED = Color.RED;
@@ -14,7 +14,7 @@ public class PieChartKey extends Canvas {
 
             this.setSize(150, 200);
         }
-
+        @Override
         public void paint(Graphics g)
         {
             labely = 30;

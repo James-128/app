@@ -6,10 +6,13 @@ public class bottom extends JPanel{
     private JLabel lab;
     private JLabel lab2;
     private JLabel lab3;
-    private PieChart pieChart;
+
     private GridBagConstraints gbc;
 
+    private PieChart pieChart;
     private PieChartKey key;
+    private Table table;
+
     public bottom() {
 
 
@@ -21,15 +24,19 @@ public class bottom extends JPanel{
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
 //        gbc.insets = new Insets(0,0,0,350);
-        gbc.anchor = GridBagConstraints.PAGE_START;
+//        gbc.anchor = GridBagConstraints.PAGE_START;
         this.add(pieChart, gbc);
 
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
 //        gbc.insets = new Insets(0,0,0,200);
-        gbc.anchor = GridBagConstraints.CENTER;
+//        gbc.anchor = GridBagConstraints.CENTER;
         key = new PieChartKey();
-        this.add(key);
+        this.add(key, gbc);
+
+        table = new Table();
+
+        this.add(table, gbc);
 
 //        GridBagConstraints c2 = new GridBagConstraints();
 //        c2.fill = GridBagConstraints.HORIZONTAL;
