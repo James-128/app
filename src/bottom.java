@@ -9,6 +9,7 @@ public class bottom extends JPanel{
     private PieChart pieChart;
     private GridBagConstraints gbc;
 
+    private PieChartKey key;
     public bottom() {
 
 
@@ -18,10 +19,17 @@ public class bottom extends JPanel{
         pieChart = new PieChart();
 
         gbc = new GridBagConstraints();
-
-        gbc.insets = new Insets(0,0,0,650);
-
+        gbc.gridx = 0;
+//        gbc.insets = new Insets(0,0,0,350);
+        gbc.anchor = GridBagConstraints.PAGE_START;
         this.add(pieChart, gbc);
+
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+//        gbc.insets = new Insets(0,0,0,200);
+        gbc.anchor = GridBagConstraints.CENTER;
+        key = new PieChartKey();
+        this.add(key);
 
 //        GridBagConstraints c2 = new GridBagConstraints();
 //        c2.fill = GridBagConstraints.HORIZONTAL;
