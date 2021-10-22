@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class practice {
-
+    static bottom bottomComponents;
 
     public static void main(String[] args) {
 
@@ -15,7 +15,7 @@ public class practice {
 //---------------------------------------------------------- overall frame
         frame = new JFrame();
         frame.setLayout(new GridLayout(2,1));
-        frame.setSize(800, 500);
+        frame.setSize(800, 650);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //------------------------------------------------top half
 
@@ -41,7 +41,7 @@ public class practice {
 
         bottomhalf = new JPanel();
         bottomhalf.setLayout(new GridBagLayout());
-        bottom bottomComponents = new bottom();
+        bottomComponents = new bottom();
         bottomhalf.add(bottomComponents);
         frame.add(bottomhalf);
         manualEntryComponent.assignPieChart (bottomComponents.getPieChart());
@@ -51,5 +51,9 @@ public class practice {
 
         frame.setVisible(true);
         frame.invalidate();
+    }
+
+    public static bottom getBottom () {
+        return practice.bottomComponents;
     }
 }

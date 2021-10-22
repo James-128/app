@@ -5,11 +5,13 @@ public class Table extends JTable {
     public Table (String[][] data, String[] columnNames) {
         super (data, columnNames);
 
-        this.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        this.setBounds(30, 30, 200, 300);
-        this.setFillsViewportHeight(true);
-        this.rowHeight = 20;
+
     }
+
+    public void update () {
+
+    }
+
 
     @Override
     public boolean isCellEditable (int row, int column) {
@@ -17,3 +19,9 @@ public class Table extends JTable {
         return false;
     }
 }
+
+
+//        this.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+//        this.setBounds(30, 30, 300, 300);
+//        this.setFillsViewportHeight(true);
+//        this.rowHeight = 20;

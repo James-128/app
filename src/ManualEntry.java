@@ -94,6 +94,8 @@ public class ManualEntry extends JPanel {
             if (pieChart != null) {
                 pieChart.update();
             }
+
+            practice.getBottom().updateTable();
         });
     }
 

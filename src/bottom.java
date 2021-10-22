@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.Dimension;
 
 public class bottom extends JPanel{
 
@@ -36,16 +37,46 @@ public class bottom extends JPanel{
 
 
 
-
         // Column Names
         String[] columnNames = { "Name", "Roll Number", "Department" };
-        String[][] data = { { "Kundan Kumar Jha", "4031", "CSE" }, { "Anand Jha", "6014", "IT" }};
+        String[][] data = { { "Kundan Kumar Jha", "4031", "CSE" },{ "Kundan Kumar Jha", "4031", "CSE" },{ "Kundan Kumar Jha", "4031", "CSE" },{ "Kundan Kumar Jha", "4031", "CSE" },{ "Kundan Kumar Jha", "4031", "CSE" },{ "Kundan Kumar Jha", "4031", "CSE" }, { "Anand Jha", "6014", "IT" }, { "Name", "Roll Number", "Department" }};
         table = new Table(data, columnNames);
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
+
         this.add(table, gbc);
 
     }
 
+    public void updateTable () {
+        //Get the components in the panel
+        Component[] componentList = this.getComponents();
+
+        //Loop through the components
+        for(Component c : componentList){
+
+            //Find the components you want to remove
+            if(c instanceof JTable){
+
+                //Remove it
+                this.remove(c);
+            }
+        }
+
+        this.revalidate();
+        this.repaint();
+
+        String[] columnNames = { "Name", "Roll Number", "Department" };
+        String[][] data = { { "Kundan Kumar Jha", "4031", "CSE" },{ "Kundan Kumar Jha", "4031", "CSE" },{ "Kundan Kumar Jha", "4031", "CSE" },{ "Kundan Kumar Jha", "4031", "CSE" },{ "Kundan Kumar Jha", "4031", "CSE" },{ "Kundan Kumar Jha", "4031", "CSE" }, { "Anand Jha", "6014", "IT" }, { "Name", "Roll Number", "Department" }};
+
+        table = new Table(data, columnNames);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+
+        this.add(table, gbc);
+    }
+
+
     public PieChart getPieChart () { return this.pieChart; }
+
 }
