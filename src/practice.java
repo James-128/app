@@ -15,7 +15,7 @@ public class practice {
 //---------------------------------------------------------- overall frame
         frame = new JFrame();
         frame.setLayout(new GridLayout(2,1));
-        frame.setSize(800, 650);
+        frame.setSize(855, 650);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //------------------------------------------------top half
 
