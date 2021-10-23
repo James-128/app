@@ -44,7 +44,8 @@ public class PieChart extends Canvas {
         grainCals = data[5];
         trashCals = data[6];
 
-        this.invalidate();
+//        this.invalidate();
+        this.repaint();
     }
 
     @Override
@@ -80,8 +81,11 @@ public class PieChart extends Canvas {
         g.setColor(YELLOW);
         angle = 360 - currentAngle;
         g.fillArc(pcX,pcY, pcw,pch, currentAngle, angle);
-        currentAngle += angle;
+        currentAngle = 0;
+
 
     }
+
+
 
 }
