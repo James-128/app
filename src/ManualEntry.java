@@ -33,6 +33,7 @@ public class ManualEntry extends JPanel {
 
     public ManualEntry() {
 
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
         this.setLayout(new GridBagLayout());
         this.setBackground(Color.cyan);
 

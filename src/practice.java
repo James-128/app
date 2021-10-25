@@ -23,6 +23,7 @@ public class practice {
         tophalf.setLayout(new GridLayout(1, 2));
         tophalf.setBackground(Color.black);
         frame.add(tophalf);
+        tophalf.setBorder(BorderFactory.createLineBorder(Color.black));
 //------------------------------------------------top left
 
 
@@ -36,7 +37,7 @@ public class practice {
         right.setLayout(new GridBagLayout());
         right.setBackground(Color.yellow);
         tophalf.add(right);
-
+        right.setBorder(BorderFactory.createLineBorder(Color.black));
 //------------------------------------------------bottom half
 
         bottomhalf = new JPanel();
@@ -46,6 +47,8 @@ public class practice {
         bottomhalf.setBackground(Color.ORANGE);
         frame.add(bottomhalf);
         manualEntryComponent.assignPieChart (bottomComponents.getPieChart());
+
+        bottomhalf.setBorder(BorderFactory.createLineBorder(Color.black));
 
         // update drawn components
         bottomComponents.getPieChart().update();
