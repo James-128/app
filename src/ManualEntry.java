@@ -53,7 +53,7 @@ public class ManualEntry extends JPanel {
 
         this.add (namelabel, gbc);
 
-        nametext = new JTextField ("hello", 10);
+        nametext = new JTextField ("Food name?", 10);
         gbc.weightx = .9;
         gbc.weighty = 0.1;
         gbc.gridx = 1;
@@ -101,7 +101,7 @@ public class ManualEntry extends JPanel {
     }
 
     private void initManualEntryTitle (){
-        Title = new JLabel("Wadjya Eet?");
+        Title = new JLabel("What did you eat?");
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridy = gbcy++;
@@ -115,7 +115,7 @@ public class ManualEntry extends JPanel {
     private void initCalorieComponents(){
 
         calorieLabel = new JLabel ("Calories: ");
-        calorieNM = new SpinnerNumberModel (0, 0, 1000, 7);
+        calorieNM = new SpinnerNumberModel (0, 0, 1000, 10);
         calorieSpinner = new JSpinner (calorieNM);
 
         GridBagConstraints labelgbc = new GridBagConstraints();
