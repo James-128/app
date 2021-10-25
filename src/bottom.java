@@ -17,7 +17,7 @@ public class bottom extends JPanel{
 
 
         this.setLayout(new GridBagLayout());
-
+        this.setBackground(Color.BLACK);
 
         pieChart = new PieChart();
 

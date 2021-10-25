@@ -27,15 +27,15 @@ public class PieChartKey extends Canvas {
             g.fillRect(20, labely-10, 10, 10);
             labely += 20;
 
-            // Veggie
-            g.setColor(GREEN);
-            g.drawString("         Veggie", 10, labely);
+            // Trash
+            g.setColor(Color.ORANGE);
+            g.drawString("         Trash", 10, labely);
             g.fillRect(20, labely-10, 10, 10);
             labely += 20;
 
-            // Fruit
-            g.setColor(RED);
-            g.drawString("         Fruit", 10, labely);
+            // Veggie
+            g.setColor(GREEN);
+            g.drawString("         Veggie", 10, labely);
             g.fillRect(20, labely-10, 10, 10);
             labely += 20;
 
@@ -45,9 +45,9 @@ public class PieChartKey extends Canvas {
             g.fillRect(20, labely-10, 10, 10);
             labely += 20;
 
-            // Trash
-            g.setColor(BLACK);
-            g.drawString("         Trash", 10, labely);
+            // Fruit
+            g.setColor(RED);
+            g.drawString("         Fruit", 10, labely);
             g.fillRect(20, labely-10, 10, 10);
             labely += 20;
 

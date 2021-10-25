@@ -43,6 +43,7 @@ public class practice {
         bottomhalf.setLayout(new GridBagLayout());
         bottomComponents = new bottom();
         bottomhalf.add(bottomComponents);
+        bottomhalf.setBackground(Color.ORANGE);
         frame.add(bottomhalf);
         manualEntryComponent.assignPieChart (bottomComponents.getPieChart());
 
