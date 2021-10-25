@@ -34,6 +34,7 @@ public class bottom extends JPanel{
         stats = new JLabel("stats");
         gbc = new GridBagConstraints();
         gbc.gridy = 0;
+        gbc.insets.bottom = 100;
 
         this.add(stats, gbc);
 
@@ -56,7 +57,7 @@ public class bottom extends JPanel{
 
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
-        gbc.gridy = 1;
+        gbc.gridy = 0;
         gbc.insets.right = 5;
 
         this.add(table, gbc);
