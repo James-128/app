@@ -31,11 +31,12 @@ public class bottom extends JPanel{
         key = new PieChartKey();
         this.add(key, gbc);
 
+
         stats = new JLabel("stats");
         gbc = new GridBagConstraints();
         gbc.gridy = 0;
         gbc.insets.bottom = 100;
-
+        stats.setForeground(Color.white);
         this.add(stats, gbc);
 
         String[] columnNames = { "Total", "Fruit", "Veggie", "Protein", "Dairy", "Grain", "Trash"};
