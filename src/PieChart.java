@@ -68,7 +68,7 @@ public class PieChart extends Canvas {
         g.fillArc(pcX,pcY, pcw,pch, currentAngle, angle);
         currentAngle += angle;
 
-        g.setColor(PINK);
+        g.setColor(Color.WHITE);
         angle = Utility.caloriesToAngle(DairyCals, totalCal);
         g.fillArc(pcX,pcY, pcw,pch, currentAngle, angle);
         currentAngle += angle;

@@ -40,7 +40,7 @@ public class PieChartKey extends Canvas {
             labely += 20;
 
             // Dairy
-            g.setColor(PINK);
+            g.setColor(Color.WHITE);
             g.drawString("         Dairy", 10, labely);
             g.fillRect(20, labely-10, 10, 10);
             labely += 20;
