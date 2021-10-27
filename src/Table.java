@@ -8,11 +8,6 @@ public class Table extends JTable {
 
     }
 
-    public void update () {
-
-    }
-
-
     @Override
     public boolean isCellEditable (int row, int column) {
         //all cells false

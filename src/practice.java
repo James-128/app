@@ -34,10 +34,14 @@ public class practice {
 
 //------------------------------------------------top right
         right = new JPanel();
-        right.setLayout(new GridBagLayout());
+        right.setLayout(new GridLayout(1,1));
         right.setBackground(Color.yellow);
+        API2 api = new API2();
+        right.add(api);
         tophalf.add(right);
         right.setBorder(BorderFactory.createLineBorder(Color.black));
+
+
 //------------------------------------------------bottom half
 
         bottomhalf = new JPanel();
