@@ -1,5 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 public class API2 extends JPanel {
 
@@ -71,6 +75,25 @@ public class API2 extends JPanel {
         bottom.add(bottomLabel);
 
 
+    }
+
+    public void fetchResultsFromNutritionAPIOnline (String query) {
+        String url = "https://trackapi.nutritionix.com/v2/search/instant?query=" + query;
+        String apikey = "716eebfff20e3e750f25fcbd9e860ceb";
+        String apiid = "0e1f918f";
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create (url))
+                .header ("Content-Type", "application/json")
+                .header("x-app-key", apikey)
+                .header("x-app-id", apiid)
+                .build();
+
+        client.sendAsync (request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body)
+                .thenAccept(System.out::println)
+                .join();
     }
 
 }
