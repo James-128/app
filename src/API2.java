@@ -57,6 +57,7 @@ public class API2 extends JPanel {
             String something = searchbar.getText ();
             System.out.println(something);
 
+            API2.fetchResultsFromNutritionAPIOnline(something);
             bottomLabel.setText(something);
         });
 
@@ -77,7 +78,8 @@ public class API2 extends JPanel {
 
     }
 
-    public void fetchResultsFromNutritionAPIOnline (String query) {
+    public static void fetchResultsFromNutritionAPIOnline (String query) {
+
         String url = "https://trackapi.nutritionix.com/v2/search/instant?query=" + query;
         String apikey = "716eebfff20e3e750f25fcbd9e860ceb";
         String apiid = "0e1f918f";
@@ -94,6 +96,7 @@ public class API2 extends JPanel {
                 .thenApply(HttpResponse::body)
                 .thenAccept(System.out::println)
                 .join();
+
     }
 
 }
