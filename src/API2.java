@@ -24,6 +24,7 @@ public class API2 extends JPanel {
 
     JLabel APITitle;
     JLabel bottomLabel;
+    JLabel secondReturn;
 
     public API2() {
 
@@ -45,7 +46,7 @@ public class API2 extends JPanel {
         top.add(topOfTop);
 
         //----------------------------------- API TITLE
-        APITitle = new JLabel("API");
+        APITitle = new JLabel("USDA Database Search");
         topOfTop.add(APITitle);
         //----------------------------------- SEARCHBAR
         searchbar = new JTextField("Food Name?", 10);
@@ -62,8 +63,21 @@ public class API2 extends JPanel {
             String something = searchbar.getText ();
             System.out.println(something);
 
-            API2.fetchResultsFromNutritionAPIOnline(something);
-            bottomLabel.setText(something);
+            ArrayList<String> APIinfo = API2.fetchResultsFromNutritionAPIOnline(something);
+            String tmp = "";
+            String tmp1 = "";
+
+            for (int i = 0; i < APIinfo.size()/2; i++){
+                tmp += APIinfo.get(i) + "   ";
+            }
+
+            for (int i = APIinfo.size()/2; i < APIinfo.size(); i ++){
+                tmp1 += APIinfo.get(i) + "   ";
+            }
+
+            bottomLabel.setText(tmp);
+            secondReturn.setText(tmp1);
+
         });
 
         //----------------------------------- BOTTOM
@@ -73,17 +87,23 @@ public class API2 extends JPanel {
         bottom.setLayout(new GridBagLayout());
 
         this.add(bottom);
+        GridBagConstraints gbc = new GridBagConstraints();
 
         //----------------------------------- BOTTOMLABEL
 
-        bottomLabel = new JLabel("LABLEL");
+        bottomLabel = new JLabel("");
+        gbc.gridy = 0;
 
-        bottom.add(bottomLabel);
+        bottom.add(bottomLabel, gbc);
 
+        //----------------------------------- BOTTOMBOTTOMLABEL
 
+        secondReturn = new JLabel("");
+        gbc.gridy = 1;
+        bottom.add(secondReturn, gbc);
     }
 
-    public static void fetchResultsFromNutritionAPIOnline (String query) {
+    public static ArrayList<String> fetchResultsFromNutritionAPIOnline (String query) {
 
         String apikey = "fYwLcMgU9oUkNPRX8lVknkuwSWDehaqhoa9mXSAd";
         String url = "https://api.nal.usda.gov/fdc/v1/foods/search?query=" + query + "&pageSize=2&api_key=" + apikey;
@@ -98,14 +118,13 @@ public class API2 extends JPanel {
 
         try {
             response = client.send(request, HttpResponse.BodyHandlers.ofString(Charset.defaultCharset()));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         if (response == null) {
-            System.out.println ("api response is null");
-            return;
+            System.out.println("api response is null");
+            return null;
         }
 
 //        System.out.println(response.body());
@@ -130,41 +149,35 @@ public class API2 extends JPanel {
 
             if (nutrientName.equals("Total lipid (fat)")) {
                 nutrientName = "Fat";
-            }
-            else if (nutrientName.equals("Carbohydrate, by difference")) {
+            } else if (nutrientName.equals("Carbohydrate, by difference")) {
                 nutrientName = "Carbs";
-            }
-            else if (nutrientName.equals("Energy")) {
+            } else if (nutrientName.equals("Energy")) {
                 nutrientName = "";
-            }
-            else if (nutrientName.equals("Sugars, total including NLEA")) {
+            } else if (nutrientName.equals("Sugars, total including NLEA")) {
                 nutrientName = "Sugar";
-            }
-            else if (nutrientName.equals("Fiber, total dietary")) {
+            } else if (nutrientName.equals("Fiber, total dietary")) {
                 nutrientName = "Fiber";
-            }
-            else if (nutrientName.equals("Sodium, Na")) {
+            } else if (nutrientName.equals("Sodium, Na")) {
                 nutrientName = "Sodium";
-            }
-            else if (nutrientName.equals("Fatty acids, total trans")) {
+            } else if (nutrientName.equals("Fatty acids, total trans")) {
                 continue;
-            }
-            else if (nutrientName.equals("Fatty acids, total saturated")) {
+            } else if (nutrientName.equals("Fatty acids, total saturated")) {
+                continue;
+            } else if (nutrientName.equals("Protein")){
+                info.add("Protein " + value + unitName);
+                continue;
+            } else {
                 continue;
             }
 
             if (unitName.equals("KCAL")) {
-                info.add (value + " cal");
+                info.add(value + " Cal");
                 continue;
             }
 
-            info.add (nutrientName + " " + value + unitName);
+            info.add(nutrientName + " " + value + unitName);
         }
-
-        for (String infoItem : info) {
-            System.out.println (infoItem);
-        }
-
+        return info;
     }
 
 }
